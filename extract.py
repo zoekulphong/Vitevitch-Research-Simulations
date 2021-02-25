@@ -1,7 +1,7 @@
 import pandas as pd
 
 # declares target file as df_target
-df_target = pd.read_csv(r'C:/Users/zckul/Desktop/Vitevitch Research/Words_Aphasia-Aging.csv')   
+df_target = pd.read_csv(r'C:/Users/zckul/Desktop/Vitevitch Research/Vitevitch-Research-Simulations/Words_Aphasia-Aging.csv')   
 
 # creates empty data frame to store data points
 df_alldatapts = pd.DataFrame()
@@ -14,7 +14,7 @@ while decaynum < 1:
         word = df_target.iat[wordnum,0] 
 
         # declares output file as df_data
-        df_data = pd.read_csv(r'C:/Users/zckul/Desktop/Vitevitch Research/Auto Simulations/Outputs/decay = ' + str(round(decaynum, 2)) + '/' + word + '_' + str(round(decaynum, 2)) + '.csv')
+        df_data = pd.read_csv(r'C:/Users/zckul/Desktop/Vitevitch Research/Vitevitch-Research-Simulations/Outputs/decay = ' + str(round(decaynum, 2)) + '/' + word + '_' + str(round(decaynum, 2)) + '.csv')
        
         # saves rows where target word appears as df_positions
         search = word

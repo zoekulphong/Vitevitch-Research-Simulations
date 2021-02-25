@@ -2,12 +2,14 @@ import pandas as pd
 import rpy2
 import rpy2.robjects as robjects
 
-from rpy2.robjects.packages import importr # import R packages
+# import r packages
+from rpy2.robjects.packages import importr 
 igraph = importr('igraph')
 spreadr = importr('spreadr')
 
-data = pd.read_csv (r'C:\Users\zckul\Desktop\Vitevitch Research\Words_Aphasia-Aging.csv')    # opens target file
-df = pd.DataFrame(data, columns = ['Test_word'])    # defines df as target column in target file 
+# opens file with list of words and saves column of words as df
+data = pd.read_csv (r'C:\Users\zckul\Desktop\Vitevitch Research\Vitevitch-Research-Simulations\Words_Aphasia-Aging.csv')    
+df = pd.DataFrame(data, columns = ['Test_word'])    
 
 # runs through entire list
 decaynum = 1
@@ -15,7 +17,7 @@ wordnum = 0
 
 while decaynum < 10:
     while wordnum < 175:
-        robjects.r("hml <- read_graph('C:/Users/zckul/Desktop/Vitevitch Research/HML_lexicon.net', format = c('pajek'))")
+        robjects.r("hml <- read_graph('C:/Users/zckul/Desktop/Vitevitch Research/Vitevitch-Research-Simulations/HML_lexicon_Aging.net', format = c('pajek'))")
         print("1 " + df.iat[wordnum, 0])
         robjects.r("initial_df <- data.frame(node = '" + df.iat[wordnum, 0] + "', activation = 20, stringsAsFactors = F)")
         print("2 " + df.iat[wordnum, 0])
@@ -33,7 +35,7 @@ wordnum = 120
 
 while decaynum < 10:
     while wordnum < 175:
-        robjects.r("hml <- read_graph('C:/Users/zckul/Desktop/Vitevitch Research/HML_lexicon.net', format = c('pajek'))")
+        robjects.r("hml <- read_graph('C:/Users/zckul/Desktop/Vitevitch Research/Vitevitch-Research-Simulations/HML_lexicon_Aging.net', format = c('pajek'))")
         print("1 " + df.iat[wordnum, 0])
         robjects.r("initial_df <- data.frame(node = '" + df.iat[wordnum, 0] + "', activation = 20, stringsAsFactors = F)")
         print("2 " + df.iat[wordnum, 0])
