@@ -1,14 +1,14 @@
+# import pandas library
 import pandas as pd
 
 # declares target file as df_target
 df_target = pd.read_csv(r'C:/Users/zckul/Desktop/Vitevitch Research/Vitevitch-Research-Simulations/Words_Aphasia-Aging.csv')   
 
-# creates empty data frame to store data points
-df_alldatapts = pd.DataFrame()
-
+# sets starting word and decay value
 decaynum = 0.1   
 wordnum = 0
 
+# runs through list and opens each file, finds positions of word, saves placement of fifth activation step and prints value at fifth activations step
 while decaynum < 1:
     while wordnum < 165:
         word = df_target.iat[wordnum,0] 
@@ -27,7 +27,7 @@ while decaynum < 1:
         
         wordnum = wordnum + 1
 
-    # ran out of time - in future make script write data to excel file 
+    # ran out of time - in future make script write data to excel file (for now just copying all data pts in excel file)
     print("NEW DECAY VALUE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     wordnum = 0
     decaynum = decaynum + 0.2

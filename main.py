@@ -1,8 +1,7 @@
+# import pandas and rpy2 library and r packages
 import pandas as pd
 import rpy2
 import rpy2.robjects as robjects
-
-# import r packages
 from rpy2.robjects.packages import importr 
 igraph = importr('igraph')
 spreadr = importr('spreadr')
@@ -11,10 +10,11 @@ spreadr = importr('spreadr')
 data = pd.read_csv (r'C:\Users\zckul\Desktop\Vitevitch Research\Vitevitch-Research-Simulations\Words_Aphasia-Aging.csv')    
 df = pd.DataFrame(data, columns = ['Test_word'])    
 
-# runs through entire list
+# sets starting decay value and word
 decaynum = 1
 wordnum = 0
 
+# runs the four r commands (outputs file in end), inserts word where needed as df.iat (runs through entire list)
 while decaynum < 10:
     while wordnum < 175:
         robjects.r("hml <- read_graph('C:/Users/zckul/Desktop/Vitevitch Research/Vitevitch-Research-Simulations/HML_lexicon_Aging.net', format = c('pajek'))")
@@ -28,6 +28,9 @@ while decaynum < 10:
         wordnum = wordnum + 1
     wordnum = 0
     decaynum = decaynum + 2 
+
+
+
 
 """ starts from middle of list
 decaynum = 7
