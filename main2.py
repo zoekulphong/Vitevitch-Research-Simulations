@@ -8,7 +8,6 @@ spreadr = importr('spreadr')
 
 # opens file with list of words and saves column of words as df
 # CHANGE NAME OF DIRECTORY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 data = pd.read_csv (r'C:\Users\zckul\Desktop\Vitevitch Research\Vitevitch-Research-Simulations\Words_Aphasia-Aging_Gavin.csv')
 df = pd.DataFrame(data, columns = ['Test_word']) 
 
